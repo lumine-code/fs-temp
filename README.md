@@ -1,6 +1,6 @@
-# @lumine-code/temp
+# temp
 
-Temporary files and directories for Node.js.
+Provides temporary files, directories, and streams for Node.js.
 
 Generates a unique file or directory name under the system temporary directory, creates it with a safe mode, and optionally removes it automatically on exit. The API mirrors the `fs` module and has no runtime dependencies — cleanup is handled with the built-in `fs.rm`, so there is no `rimraf`/`mkdirp` chain to maintain.
 

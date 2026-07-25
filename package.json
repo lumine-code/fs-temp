@@ -1,6 +1,6 @@
 {
   "name": "@lumine-code/temp",
-  "description": "Temporary files and directories",
+  "description": "Provides temporary files, directories, and streams for Node.js.",
   "version": "1.0.0",
   "author": "lumine-code",
   "license": "MIT",
