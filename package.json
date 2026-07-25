@@ -5,12 +5,13 @@
   "author": "lumine-code",
   "license": "MIT",
   "keywords": [
-    "temporary",
     "temp",
+    "temporary",
     "tempfile",
     "tempdir",
     "tmpfile",
-    "tmpdir"
+    "tmpdir",
+    "cleanup"
   ],
   "repository": {
     "type": "git",
