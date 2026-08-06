@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const temp = require('../lib/temp');
+const fs = require("fs");
+const path = require("path");
+const temp = require("../lib/temp");
 
 temp.track();
 
@@ -10,12 +10,12 @@ describe("temp", () => {
   beforeEach(() => temp.cleanupSync());
 
   it("mkdir", (done) => {
-    temp.mkdir('foo', (err, tpath) => {
+    temp.mkdir("foo", (err, tpath) => {
       expect(err).toBeFalsy();
-      expect(path.basename(tpath).slice(0, 3)).toBe('foo');
+      expect(path.basename(tpath).slice(0, 3)).toBe("foo");
       expect(fs.existsSync(tpath)).toBe(true);
 
-      fs.writeFileSync(path.join(tpath, 'a file'), 'a content');
+      fs.writeFileSync(path.join(tpath, "a file"), "a content");
       temp.cleanupSync();
       expect(fs.existsSync(tpath)).toBe(false);
       done();
@@ -23,12 +23,12 @@ describe("temp", () => {
   });
 
   it("open", (done) => {
-    temp.open('bar', (err, info) => {
-      expect(typeof info).toBe('object');
-      expect(typeof info.fd).toBe('number');
-      fs.writeSync(info.fd, 'foo');
+    temp.open("bar", (err, info) => {
+      expect(typeof info).toBe("object");
+      expect(typeof info.fd).toBe("number");
+      fs.writeSync(info.fd, "foo");
       fs.closeSync(info.fd);
-      expect(typeof info.path).toBe('string');
+      expect(typeof info.path).toBe("string");
       expect(fs.existsSync(info.path)).toBe(true);
 
       temp.cleanupSync();
@@ -38,9 +38,9 @@ describe("temp", () => {
   });
 
   it("stream", (done) => {
-    const stream = temp.createWriteStream('baz');
+    const stream = temp.createWriteStream("baz");
     expect(stream instanceof fs.WriteStream).toBe(true);
-    stream.write('foo');
+    stream.write("foo");
     stream.end("More text here\nand more...", () => {
       expect(fs.existsSync(stream.path)).toBe(true);
 
@@ -57,7 +57,7 @@ describe("temp", () => {
   it("cleanup", (done) => {
     // Make a temp file just to clean up.
     const tempFile = temp.openSync();
-    fs.writeSync(tempFile.fd, 'foo');
+    fs.writeSync(tempFile.fd, "foo");
     fs.closeSync(tempFile.fd);
     expect(fs.existsSync(tempFile.path)).toBe(true);
 
@@ -81,10 +81,10 @@ describe("temp", () => {
     // temp's exit listener is attached on the first tracked path (earlier specs),
     // so creating many more must not add any additional listeners. Compare against
     // the current count rather than an absolute, since the test runner adds its own.
-    const before = process.listeners('exit').length;
+    const before = process.listeners("exit").length;
     for (let i = 0; i <= 10; i++) {
       temp.openSync();
     }
-    expect(process.listeners('exit').length).toBe(before);
+    expect(process.listeners("exit").length).toBe(before);
   });
 });
