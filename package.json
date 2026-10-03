@@ -1,8 +1,8 @@
 {
-  "name": "@lumine-code/temp",
+  "name": "@lumine-code/fs-temp",
+  "author": "lumine-code",
   "description": "Provides temporary files, directories, and streams for Node.js.",
   "version": "1.0.0",
-  "author": "lumine-code",
   "license": "MIT",
   "keywords": [
     "temp",
@@ -13,13 +13,8 @@
     "tmpdir",
     "cleanup"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/lumine-code/node-temp.git"
-  },
-  "bugs": {
-    "url": "https://github.com/lumine-code/node-temp/issues"
-  },
+  "repository": "https://github.com/lumine-code/fs-temp",
+  "bugs": "https://github.com/lumine-code/fs-temp/issues",
   "engines": {
     "node": ">=24"
   },

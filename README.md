@@ -1,4 +1,4 @@
-# temp
+# fs-temp
 
 Provides temporary files, directories, and streams for Node.js.
 
@@ -15,13 +15,13 @@ Generates a unique file or directory name under the system temporary directory, 
 ## Installation
 
 ```sh
-npm install @lumine-code/temp
+npm install @lumine-code/fs-temp
 ```
 
 ## Usage
 
 ```js
-const temp = require("@lumine-code/temp");
+const temp = require("@lumine-code/fs-temp");
 
 // Opt in to automatic cleanup at exit.
 temp.track();
@@ -35,7 +35,7 @@ temp.mkdir("myprefix", (err, dirPath) => {
 If you want cleanup, you must ask for it with `track()` — tracking is opt-in so it does not interfere with long-running server processes. `track()` is chainable, so it is common to call it when requiring the module:
 
 ```js
-const temp = require("@lumine-code/temp").track();
+const temp = require("@lumine-code/fs-temp").track();
 ```
 
 ## API
