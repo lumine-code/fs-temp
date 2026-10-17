@@ -20,7 +20,8 @@
   },
   "main": "./lib/temp.js",
   "files": [
-    "lib"
+    "lib",
+    "THIRD_PARTY_NOTICES"
   ],
   "scripts": {
     "test": "jasmine",
